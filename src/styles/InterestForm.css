@@ -7,8 +7,8 @@
 .interest-form-box {
   width: 35em;
   min-height: 40em;
-  background-color: #56acbd;
-  opacity: 0.8;
+  background-color: #56ACBD;
+  opacity: 0.75;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -26,6 +26,84 @@ form {
   flex-direction: column;
   flex: 1;
   gap: 1.5rem;
+}
+
+.step-indicator {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.form-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.form-group {
+  display: flex;
+  gap: 0rem;
+  flex-direction: column;
+  text-align: left;
+  width: 100%;
+  margin-bottom: 0.75rem;
+}
+
+.name-fields-container {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.name-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.form-group input {
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-family: 'Raleway', system-ui, -apple-system, sans-serif;
+  border: 1px solid #ddd;
+  border-radius: 0px;
+  background-color: transparent;
+  color: white;
+  transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: rgb(69, 145, 164);
+  color: #56ACBD;
+  box-shadow: 0 0 0 2px rgba(69, 145, 164, 0.2);
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.form-group input.error {
+  border-color: #ff6b6b;
+}
+
+
+.form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.form-group input:focus::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.error-message {
+  color: #ff6b6b;
+  background-color: rgba(0,0,0,0.3);
+  padding: 2px;
+  font-size: 0.85rem;
+  min-height: 1.2rem;
 }
 
 .btn-container {
@@ -48,8 +126,8 @@ form {
 }
 
 .btn:hover {
-  color: #56acbd;
-  border-color: #56acbd;
+  color: #56ACBD;
+  border-color: #56ACBD;
   background-color: rgba(0, 0, 0, 0.6);
 }
 
