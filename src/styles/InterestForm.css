@@ -1,0 +1,132 @@
+.interest-form-container {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.interest-form-box {
+  width: 35em;
+  min-height: 40em;
+  background-color: #56acbd;
+  opacity: 0.8;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 2rem;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 1.5rem;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 0px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  color: #56acbd;
+  border-color: #56acbd;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-step-wrapper {
+  box-sizing: border-box;
+  padding: 2rem;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.form-step {
+  position: relative;
+  width: 100%;
+  top: auto;
+  left: auto;
+}
+
+/* Forward Swipe Animation */
+.slide-forward-enter {
+  transform: translateX(100%);
+}
+.slide-forward-enter-active {
+  transform: translateX(0);
+  transition: transform 300ms ease-in-out;
+}
+.slide-forward-exit {
+  transform: translateX(0);
+}
+.slide-forward-exit-active {
+  transform: translateX(-100%);
+  transition: transform 300ms ease-in-out;
+}
+
+/* Backward Swipe Animation */
+.slide-backward-enter {
+  transform: translateX(-100%);
+}
+.slide-backward-enter-active {
+  transform: translateX(0);
+  transition: transform 300ms ease-in-out;
+}
+.slide-backward-exit {
+  transform: translateX(0);
+}
+.slide-backward-exit-active {
+  transform: translateX(100%);
+  transition: transform 300ms ease-in-out;
+}
+
+@media screen and (max-width: 600px) {
+  .interest-form-box {
+    width: 90vw;
+    min-height: 36em;
+    padding: 1.5rem;
+  }
+
+  .form-step-wrapper {
+    padding: 1rem;
+  }
+
+  .btn-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .name-fields-container {
+    flex-direction: column;
+  }
+}
