@@ -15,7 +15,7 @@ export default function ProgressBar({
       style={{ gridTemplateColumns: generateGridColumns(totalSteps) }}
     >
       {steps
-        .map((step, index) => (
+        .map((step) => (
           <div
             key={`bubble-${step}`}
             className={`progress-bubble ${step <= currentStep ? "filled" : ""}`}
