@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 interface PricePickerProps {
   value: number;
   onChange: (value: number) => void;
@@ -7,11 +5,9 @@ interface PricePickerProps {
 }
 
 function PricePickerForm({ value, onChange, max = 300 }: PricePickerProps) {
-  const [inputValue, setInputValue] = useState(value.toString());
 
   function handleSliderChange(e: React.ChangeEvent<HTMLInputElement>) {
     const val = Number(e.target.value);
-    setInputValue(val.toString());
     onChange(val);
   }
 
