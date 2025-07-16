@@ -17,8 +17,9 @@ function PricePickerForm({ value, onChange, max = 300 }: PricePickerProps) {
 
   return (
     <div className="price-picker">
-      <div className="form-title">What is your budget?</div>
-      <label className="price-label">Guess your price:</label>
+      <div className="form-title">Guess the price,<br/>Get the air fryer!</div>
+      <div className="price-display">${value}</div>
+      <label className="price-label">Adjust your guess:</label>
       <div className="slider-container">
         <input
           type="range"

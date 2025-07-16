@@ -1,10 +1,19 @@
 .price-picker {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  align-items: center;
+  gap: 1.5rem;
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
+}
+
+.price-display {
+  font-size: 4rem;
+  font-weight: 700;
+  color: white;
+  margin: 0.5rem 0;
+  transition: transform 0.2s ease;
 }
 
 .price-label {

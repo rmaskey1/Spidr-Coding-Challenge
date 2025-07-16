@@ -6,19 +6,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 import '../styles/InterestForm.css';
 import '../styles/PricePickerForm.css';
 import '../styles/SecretKeyForm.css';
-// import '../styles/ProgressBar.css';
+import '../styles/ProgressBar.css';
 
 // Hook imports
 import { useMultistep } from '../hooks/useMultistep';
 
 // Form Step imports
-import PricePickerForm from './FormSteps/PricePickerForm';
 import UserForm from './FormSteps/UserForm';
+import PricePickerForm from './FormSteps/PricePickerForm';
 import SecretKeyForm from './FormSteps/SecretKeyForm';
 
 // Other component imports
-// import ProgressBar from './ui/ProgressBar';
-// import spiderLogo from '../assets/spidr-logo.png';
+import ProgressBar from './Other/ProgressBar';
+import spiderLogo from '../assets/spidr-logo.png';
 
 type FormData = {
   firstName: string;
@@ -41,18 +41,36 @@ export default function InterestForm() {
 
   const [direction, setDirection] = useState(1);
   const [formErrors, setFormErrors] = useState<Partial<FormData>>({});
+  const [showThankYou, setShowThankYou] = useState(false);
+
+  const steps = [
+    <PricePickerForm key="step1" value={data.price} onChange={(price) => updateFields({ price })} max={300} />,
+    <UserForm key="step2" formData={data} updateFields={updateFields} errors={formErrors} onFieldChange={handleFieldChange} />,
+    <SecretKeyForm key="step3" value={data.secretKey} onChange={(secretKey) => updateFields({ secretKey })} errors={formErrors} onFieldChange={handleFieldChange} />,
+  ];
+
+  const {
+    currentStep,
+    step,
+    next,
+    back,
+    isFirstStep,
+    isLastStep
+  } = useMultistep(steps);
 
   function updateFields(fields: Partial<FormData>) {
     setData(prev => ({ ...prev, ...fields }));
   }
 
-  function handleFieldChange(field: keyof FormData, value: string, updatedErrors?: Partial<FormData>) {
-    updateFields({ [field]: value });
+  function handleFieldChange(field: string, value: string, updatedErrors?: Partial<FormData>) {
+    if (field in data) {
+      updateFields({ [field as keyof FormData]: value });
+    }
     if (updatedErrors) {
       setFormErrors(updatedErrors);
-    } else if (formErrors[field]) {
+    } else if (formErrors[field as keyof FormData]) {
       const newErrors = { ...formErrors };
-      delete newErrors[field];
+      delete newErrors[field as keyof FormData];
       setFormErrors(newErrors);
     }
   }
@@ -76,66 +94,68 @@ export default function InterestForm() {
     return Object.keys(errors).length === 0;
   }
 
-  const steps = [
-    <PricePickerForm key="step1" value={data.price} onChange={(price: number) => updateFields({ price })} max={300} />,
-    <UserForm key="step2" formData={data} updateFields={updateFields} errors={formErrors} onFieldChange={handleFieldChange} />,
-    <SecretKeyForm key="step3" value={data.secretKey} onChange={(secretKey) => updateFields({ secretKey })} />,
-  ];
-
-  const {
-    currentStep,
-    step,
-    next,
-    back,
-    isFirstStep,
-    isLastStep
-  } = useMultistep(steps);
-
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (!validateForm()) return;
 
     if (!isLastStep()) {
       setDirection(1);
       next();
     } else {
       console.log('Form submitted:', data);
+      setShowThankYou(true);
     }
   }
 
   return (
     <div className="interest-form-container">
       <div className="interest-form-box">
+        <ProgressBar totalSteps={steps.length} currentStep={currentStep} />
+        <div className="spider-wrapper">
+          <img src={spiderLogo} className="spider-img" />
+        </div>
         <form onSubmit={onSubmit}>
           <div className="form-step-wrapper">
             <AnimatePresence initial={false} custom={direction} mode="wait">
-              <motion.div
-                key={currentStep}
-                className="form-step"
-                custom={direction}
-                variants={{
-                enter: (dir: number) => ({ x: dir > 0 ? 300 : -300, opacity: 0 }),
-                center: { x: 0, opacity: 1 },
-                exit: (dir: number) => ({ x: dir > 0 ? -300 : 300, opacity: 0 })
-                }}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.4, ease: 'easeInOut' }}
-              >
-                {step}
-              </motion.div>
+              {!showThankYou ? (
+                <motion.div
+                  key={currentStep}
+                  className="form-step"
+                  custom={direction}
+                  variants={{
+                    enter: (dir: number) => ({ x: dir > 0 ? 300 : -300, opacity: 0 }),
+                    center: { x: 0, opacity: 1 },
+                    exit: (dir: number) => ({ x: dir > 0 ? -300 : 300, opacity: 0 })
+                  }}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ duration: 0.4, ease: 'easeInOut' }}
+                >
+                  {step}
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="thankyou"
+                  className="thank-you-message"
+                  initial={{ opacity: 0, y: -30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, ease: 'easeOut' }}
+                >
+                  <h2>Thank you for submitting!</h2>
+                </motion.div>
+              )}
             </AnimatePresence>
           </div>
-          <div className="btn-container">
-            {!isFirstStep() && (
-              <button type="button"  onClick={() => { setDirection(-1); back(); }} className="btn">Back</button>
-            )}
-            {!isLastStep() ? (
-              <button type="button" onClick={() => { setDirection(1); next(); }} className="btn">Next</button>
-            ) : (
-              <button type="submit" className="btn">Finish</button>
-            )}
-          </div>
+
+          {!showThankYou && (
+            <div className="btn-container">
+              {!isFirstStep() && (
+                <button type="button" onClick={() => { setDirection(-1); back(); }} className="btn">Back</button>
+              )}
+              <button type="submit" className="btn">{isLastStep() ? 'Finish' : 'Next'}</button>
+            </div>
+          )}
         </form>
       </div>
     </div>
