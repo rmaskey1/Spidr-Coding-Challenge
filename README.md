@@ -68,7 +68,7 @@ Pre-implementation [Figma draft](https://www.figma.com/design/RfxEzPt1i3cHYk55NR
   - ![#56ACBD](https://placehold.co/15x15/56ACBD/56ACBD.png) `#56ACBD`
   - ![#7A7A7B](https://placehold.co/15x15/7A7A7B/7A7A7B.png) `#7A7A7B`
 - Font: Raleway
-- Logo: \
+- Logo: 
 <img src="src/assets/spidr-logo.png" alt="spider-logo" width="100"/>
 
 ### Multistep Form
