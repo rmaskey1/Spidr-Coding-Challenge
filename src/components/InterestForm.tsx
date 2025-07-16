@@ -108,7 +108,7 @@ export default function InterestForm() {
   }
 
   return (
-    <div className="interest-form-container">
+    <div className={`interest-form-container ${showThankYou ? 'thank-you-active' : ''}`}>
       <div className="interest-form-box">
         <ProgressBar totalSteps={steps.length} currentStep={currentStep} />
         <div className="spider-wrapper">
@@ -142,7 +142,8 @@ export default function InterestForm() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, ease: 'easeOut' }}
                 >
-                  <h2>Thank you for submitting!</h2>
+                  <h2 className="thank-you-title">Thank you for showing interest!</h2>
+                  <p className="thank-you-subtitle">Keep an eye out for a message from us to see if you've won.</p>
                 </motion.div>
               )}
             </AnimatePresence>
