@@ -2,11 +2,11 @@
 
 <div style="font-family: 'Raleway', sans-serif">
 
-# <font color="#56ACBD"> Spidr Coding Challenge</font>
+# <div style="color:#56ACBD;"> Spidr Coding Challenge</div>
 
 A React application built with TypeScript and Vite, featuring a multi-step interest form following Spidr Design's brand style.
 
-## <font color="#56ACBD"> Prerequisites</font>
+## <div style="color:#56ACBD;"> Prerequisites
 
 - Node.js 16+
 - npm (version 7+)
