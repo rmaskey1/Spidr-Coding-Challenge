@@ -2,11 +2,11 @@
 
 <div style="font-family: 'Raleway', sans-serif">
 
-# <div style="color:#56ACBD;"> Spidr Coding Challenge</div>
+# <font color="#56ACBD"> Spidr Coding Challenge</font>
 
 A React application built with TypeScript and Vite, featuring a multi-step interest form following Spidr Design's brand style.
 
-## <div style="color:#56ACBD;"> Prerequisites
+## <font color="#56ACBD"> Prerequisites</font>
 
 - Node.js 16+
 - npm (version 7+)
@@ -63,10 +63,10 @@ Pre-implementation [Figma draft](https://www.figma.com/design/RfxEzPt1i3cHYk55NR
 
 ### Assessed brand kit:
 - Colors: 
-  - #262728<div style="background-color:#262728; width:50px; height:50px"></div>
-  - #FFFFFF<div style="background-color:#FFFFFF; width:50px; height:50px"></div>
-  - #56ACBD<div style="background-color:#56ACBD; width:50px; height:50px"></div>
-  - #7A7A7B<div style="background-color:#7A7A7B; width:50px; height:50px"></div>
+  - ![#262728](https://placehold.co/15x15/262728/262728.png) `#262728`
+  - ![#FFFFFF](https://placehold.co/15x15/FFFFFF/FFFFFF.png) `#FFFFFF`
+  - ![#56ACBD](https://placehold.co/15x15/56ACBD/56ACBD.png) `#56ACBD`
+  - ![#7A7A7B](https://placehold.co/15x15/7A7A7B/7A7A7B.png) `#7A7A7B`
 - Font: Raleway
 - Logo: \
 <img src="src/assets/spidr-logo.png" alt="spider-logo" width="100"/>
