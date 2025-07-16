@@ -23,7 +23,7 @@ A React application built with TypeScript and Vite, featuring a multi-step inter
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/spidr-coding-challenge.git
+   git clone https://github.com/rmaskey1/Spidr-Coding-Challenge.git
    cd spidr-coding-challenge
    ```
 
