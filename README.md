@@ -86,13 +86,13 @@ Pre-implementation [Figma draft](https://www.figma.com/design/RfxEzPt1i3cHYk55NR
 - Buttons + Text Fields
   - All buttons and text fields are styled to match the spidr.design visual style \
   Unhovered and hovered buttons: \
-  ![alt text](image.png) ![alt text](image-2.png) \
+  ![alt text](/public/image.png) ![alt text](/public/image-2.png) \
   Unfocused and focused text fields: \
-  ![alt text](image-3.png) \
-  ![alt text](image-4.png)
+  ![alt text](/public/image-3.png) \
+  ![alt text](/public/image-4.png)
 - Offset Image
   - Copying the layout of the Spidr Design website, I placed an offset image related to the purpose of the interest form, adding some translucency to the form to imitate the overlaying effect. \
-![alt text](image-5.png)
+![alt text](/public/image-5.png)
 
 ### Technology Choices
 - Vite
